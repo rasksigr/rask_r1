@@ -76,7 +76,7 @@ function RFK69(spi, options) {
 this.spi = spi;
 this.cs = options.cs;
 this.rst = options.rst;
-this.freq = (options.freq in RFK69HFreqTbl) ? options.freq : 434;
+this.freq = (options.freq in RFK69HFreqTbl) ? options.freq : 915;
 }
 
 /// Initialise the RFK69 - called automatically by require("RFK69").connect
@@ -94,7 +94,7 @@ console.log("Register Two Set");
 if (rfm.r(0x2F)!=0x55) throw new Error("RFK69 not found in 0x2F");
 console.log("Challenge Corridor Complete");
 // setup freq
-RFK69HFreqTbl[434].forEach(rfm.w16.bind(rfm));
+RFK69HFreqTbl[915].forEach(rfm.w16.bind(rfm));
 // setup rate
 RFK69HRateTbl[0].forEach(rfm.w16.bind(rfm));
 // general init

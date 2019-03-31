@@ -80,12 +80,10 @@ RFM69.prototype.connect = function(callback) {
     digitalPulse(this.rst,1,100);
   var rfm = this;
   setTimeout(function() {
-    rfm.w(0x2F,0xAA);
-    if (rfm.r(0x2F)!=0xAA) throw new Error("RFM69 not found");
-   console.log("preerror");
+  //  rfm.w(0x2F,0xAA);
+  //  if (rfm.r(0x2F)!=0xAA) throw new Error("RFM69 not found");
     rfm.w(0x2F,0x55);
     if (rfm.r(0x2F)!=0x55) throw new Error("RFM69 not found");
-    console.log("prosterror");
    // setup freq
     RFM69HFreqTbl[915].forEach(rfm.w16.bind(rfm));
     // setup rate

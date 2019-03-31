@@ -81,9 +81,9 @@ RFM69.prototype.connect = function(callback) {
   var rfm = this;
   setTimeout(function() {
     rfm.w(0x1F,0xAA);
-    if (rfm.r(0x1F)!=0xAA) throw new Error("RFM69 not found");
+    if (rfm.r(0x1F)!=0xAA) throw new Error("RFM69 not found in 0x1F");
     rfm.w(0x2F,0x55);
-    if (rfm.r(0x2F)!=0x55) throw new Error("RFM69 not found");
+    if (rfm.r(0x2F)!=0x55) throw new Error("RFM69 not found in 0x2F");
     // rfm.w(0x2F,0xAA);
     // if (rfm.r(0x2F)!=0xAA) throw new Error("RFM69 not found");
    // setup freq

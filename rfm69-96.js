@@ -87,7 +87,7 @@ RFM69.prototype.connect = function(callback) {
     rfm.w(0x2F,0xAA);
     if (rfm.r(0x2F)!=0xAA) throw new Error("RFM69 not found");
    // setup freq
-    RFM69HFreqTbl[915].forEach(rfm.w16.bind(rfm));
+    RFM69HFreqTbl[434].forEach(rfm.w16.bind(rfm));
     // setup rate
     RFM69HRateTbl[0].forEach(rfm.w16.bind(rfm));
     // general init

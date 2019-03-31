@@ -20,7 +20,7 @@ var RFM69HPowerTbl = new Uint16Array([
 //   0x117C,                   //17dbm
 //   0x1179,                   //14dbm
 //   0x1176                    //11dbm 
-// ]);
+]);
 
 var RFM69HConfigTbl = new Uint16Array([ 
   0x0200,                   //RegDataModul, FSK Packet  

@@ -79,11 +79,15 @@ RFM69.prototype.connect = function(callback) {
   if (this.rst)
     digitalPulse(this.rst,1,100);
   var rfm = this;
+  console.log("Starting Challenge Corridor");
   setTimeout(function() {
     rfm.w(0x1F,0xAA);
+    console.log("Register One Set");
     if (rfm.r(0x1F)!=0xAA) throw new Error("RFM69 not found in 0x1F")
     rfm.w(0x28,0x55);
+    console.log("Register Two Set");
     if (rfm.r(0x2F)!=0x55) throw new Error("RFM69 not found in 0x2F");
+    console.log("Challenge Corridor Complete");
    // setup freq
     RFM69HFreqTbl[434].forEach(rfm.w16.bind(rfm));
     // setup rate

@@ -89,9 +89,11 @@ setTimeout(function() {
 rfm.w(0x1F,0xAA);
 console.log("Register One Set");
 if (rfm.r(0x1F)!=0xAA) throw new Error("RFK69 not found in 0x1F")
+  console.log("Register One Cleared");
 rfm.w(0x28,0x55);
 console.log("Register Two Set");
 if (rfm.r(0x2F)!=0x55) throw new Error("RFK69 not found in 0x2F");
+  console.log("Register Two Cleared");
 console.log("Challenge Corridor Complete");
 // setup freq
 RFK69HFreqTbl[915].forEach(rfm.w16.bind(rfm));

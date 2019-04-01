@@ -108,6 +108,7 @@ RFK69.prototype.r = function(a) {
 };
 /// Internal: write register
 RFK69.prototype.w = function(a,v) {
+  console.log(this.spi.send([a|128,v], this.cs));
   this.spi.send([a|128,v], this.cs);
 };
 /// Internal: write register and value in one

@@ -103,6 +103,7 @@ if (callback) callback();
 
 /// Internal: read register
 RFK69.prototype.r = function(a) {
+  console.log(this.spi.send([a&0x7f,0], this.cs)[1]);
 return this.spi.send([a&0x7f,0], this.cs)[1];
 };
 /// Internal: write register

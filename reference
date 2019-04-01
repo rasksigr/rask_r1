@@ -1,0 +1,35 @@
+var rfm;
+//function pin.getMode(D);
+RFK69 = require("https://github.com/rasksigr/rask_r1/blob/master/rfm69-96.js");
+function onInit() {
+  SPI1.setup({mosi:D11,miso:D12,sck:D13});
+  rfm = require("https://github.com/rasksigr/rask_r1/blob/master/rfm69-96.js");
+    rfm.connect(SPI1, {cs:D4, rst:D2, freq:915}, function() {
+    console.log("Connected");
+  });
+  console.log("System running...");
+}
+setWatch(function()
+         {digitalWrite(LED1,1);
+          console.log("broken here");
+          rfm.sendPacket("Hello World", function() {digitalWrite(LED1,0);});
+         },
+         BTN, {debounce:50, edge:"rising", repeat:true}
+        );
+console.log("Initializing");
+onInit();
+
+
+//var rfm;
+function onInit() {
+  SPI.setup({mosi:D11,miso:D12,sck:D13});
+  rfm = require("RFM69").connect(SPI, {cs:D4, rst:D2, freq:868}, function() {
+    rfm.rxmode(); // in order to receive data
+    console.log("Connected");
+    setInterval(function() {
+      if (rfm.hasPacket())
+        console.log("Received : "+JSON.stringify(E.toString(rfm.getPacket())));
+    },100);
+  });
+}
+

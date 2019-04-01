@@ -82,11 +82,11 @@ digitalPulse(this.rst,1,100);
 var rfm = this;
 console.log("Starting Challenge Corridor");
 setTimeout(function() {
-rfm.w(0x1F,0xAA);
+rfm.w(0x2F,0xAA);
 console.log("Register One Set");
-if (rfm.r(0x1F)!=0xAA) throw new Error("RFK69 not found in 0x1F")
+if (rfm.r(0x2F)!=0xAA) throw new Error("RFK69 not found in 0x1F")
   console.log("Register One Cleared");
-rfm.w(0x28,0x55);
+rfm.w(0x2F,0x55);
 console.log("Register Two Set");
 if (rfm.r(0x2F)!=0x55) throw new Error("RFK69 not found in 0x2F");
   console.log("Register Two Cleared");

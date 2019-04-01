@@ -11,9 +11,9 @@ var RFK69HFreqTbl = {
 
 var RFK69HRateTbl = [
 [0x0368, 0x042B],         //BR=1.2K BW=83.333K
-[0x0334, 0x0415],         //BR=2.4K BW=83.333K
-[0x031A, 0x040B],         //BR=4.8K BW=83.333K
-[0x030D, 0x0405]          //BR=9.6K BW=83.333K
+//[0x0334, 0x0415],         //BR=2.4K BW=83.333K
+//[0x031A, 0x040B],         //BR=4.8K BW=83.333K
+//[0x030D, 0x0405]          //BR=9.6K BW=83.333K
 ];
 /*
 var RFK69HPowerTbl = new Uint16Array([
@@ -82,13 +82,13 @@ digitalPulse(this.rst,1,100);
 var rfm = this;
 console.log("Starting Challenge Corridor");
 setTimeout(function() {
-rfm.w(0x2F,0xAA);
+rfm.w(0x1F,0xAA);
 console.log("Register One Set");
-if (rfm.r(0x2F)!=0xAA) throw new Error("RFK69 not found in 0x1F")
+if (rfm.r(0x1F)!=0xAA) throw new Error("RFK69 not found in 0x1F")
   console.log("Register One Cleared");
-rfm.w(0x2F,0x55);
+rfm.w(0x28,0x55);
 console.log("Register Two Set");
-if (rfm.r(0x2F)!=0x55) throw new Error("RFK69 not found in 0x2F");
+if (rfm.r(0x28)!=0x55) throw new Error("RFK69 not found in 0x2F");
   console.log("Register Two Cleared");
 console.log("Challenge Corridor Complete");
 // setup freq

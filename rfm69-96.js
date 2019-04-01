@@ -81,7 +81,6 @@ if (this.rst)
 digitalPulse(this.rst,1,100);
 var rfm = this;
 console.log("Starting Challenge Corridor");
-console.log({this});
 console.log({rfm});
 setTimeout(function() {
 rfm.w(0x1F,0xAA);

@@ -170,6 +170,7 @@ freq : frequency - one of 315, 434, 868, 915 (default is 434)
 `callback` is optional and is called when the RFK69 has been initialised
 */
 exports.connect = function(spi,options,callback) {
+  console.log('calling connect');
 var rfm = new RFK69(spi,options);
 rfm.connect(callback);
 return rfm;

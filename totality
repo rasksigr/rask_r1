@@ -164,7 +164,6 @@ if (callback) callback();
 }, 1);
 };
 
-
 connect = function(spi,options,callback) {
   console.log('calling connect');
 var rfm = new RFK69(spi,options);
@@ -172,15 +171,6 @@ rfm.connect(callback);
 return rfm;
 };
 
-//function pin.getMode(D);
-/*
-pinMode(A5, opendrain);
-pinMode(A4, output);
-pinMode(A3, input);
-pinMode(A2, outout);
-pinMode(A1, output);
-pinMode(A0, output);
-*/
 //RFK69 = require("https://github.com/rasksigr/rask_r1/blob/master/rfm69-96.js");
 function onInit() {
   SPI1.setup({mosi:D6,miso:D7,sck:D8});
@@ -193,7 +183,6 @@ function onInit() {
   console.log("System running...");
 }
 
-/*
 setWatch(function()
          {digitalWrite(LED1,1);
           console.log("broken here");
@@ -201,7 +190,7 @@ setWatch(function()
          },
          BTN, {debounce:50, edge:"rising", repeat:true}
         );
-        */
+
 console.log("Initializing");
 onInit();
 
